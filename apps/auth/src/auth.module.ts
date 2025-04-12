@@ -2,6 +2,7 @@ import { configParser, configSchema } from 'libs/config';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
+import { RmqModule } from '@app/common';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 
@@ -14,6 +15,8 @@ import { AuthService } from './auth.service';
       load: [configParser],
       validationSchema: configSchema,
     }),
+
+    RmqModule,
   ],
   controllers: [AuthController],
   providers: [AuthService],

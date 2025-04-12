@@ -20,6 +20,6 @@ import { AppService } from './app.service';
     RmqModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, DatabaseModule],
 })
 export class AppModule {}

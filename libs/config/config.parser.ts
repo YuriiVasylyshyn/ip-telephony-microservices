@@ -1,6 +1,7 @@
 import { Config } from './config.interface';
 
 export const configParser = (): Config => ({
+  port: +process.env.PORT!,
   dbHost: process.env.DB_HOST!,
   dbPort: +process.env.DB_PORT!,
   dbUser: process.env.DB_USER!,

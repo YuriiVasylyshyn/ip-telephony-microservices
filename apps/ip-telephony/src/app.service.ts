@@ -6,7 +6,9 @@ import { SaveUserDto } from './dtos/save-user.dto';
 
 @Injectable()
 export class AppService {
-  constructor(private readonly _dbService: DatabaseService) {}
+  constructor(private readonly _dbService: DatabaseService) {
+    console.log('DatabaseService injected:', !!_dbService);
+  }
 
   async saveCallDetails(data: SaveCallDetailsDto) {
     const query = `
@@ -18,12 +20,12 @@ export class AppService {
   }
 
   async saveUser(data: SaveUserDto) {
-    const { phone, username } = data;
+    const { phone, name } = data;
     const query = `
-      INSERT INTO users (username, phone)
+      INSERT INTO users (name, phone_number)
       VALUES ($1, $2)
     `;
-    const values = [username, phone];
+    const values = [name, phone];
     await this._dbService.query(query, values);
   }
 }

@@ -15,6 +15,9 @@ export class RmqService {
         urls: [this._configService.get<string>('rabbitmq', { infer: true })],
         queue,
         noAck,
+        queueOptions: {
+          durable: true,
+        },
       },
     };
   }

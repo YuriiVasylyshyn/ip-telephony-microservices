@@ -1,4 +1,5 @@
 export interface Config {
+  port: number;
   dbHost: string;
   dbPort: number;
   dbUser: string;

@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const rmqService = app.get<RmqService>(RmqService);
 
-  app.connectMicroservice(rmqService.getOptions('telephony_queue'));
+  app.connectMicroservice(rmqService.getOptions('telephony_queue', false));
   await app.startAllMicroservices();
 }
 

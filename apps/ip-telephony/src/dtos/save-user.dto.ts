@@ -1,4 +1,4 @@
 export class SaveUserDto {
-  public username!: string;
+  public name!: string;
   public phone!: string;
 }
